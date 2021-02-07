@@ -6,9 +6,9 @@ import Navbar from './components/Navbar'
 import Weather from './components/Weather'
 
 // Defining our <App /> component the function name matches the file name
-function App() {
 
-    const [location, setLocation] = useState({lat: 0, long: 0})
+ const useLocation = () => {
+  const [location, setLocation] = useState({lat: 0, long: 0})
 
     useEffect(()=>{
       const success = (position) =>{ 
@@ -24,7 +24,15 @@ function App() {
       
     },[])
 
+    return location;
 
+}
+
+
+function App() {
+
+ const location = useLocation()
+    
 
   const routes = ['nasa','openweather','zomato']
 
