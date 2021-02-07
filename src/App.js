@@ -1,11 +1,30 @@
+import { useEffect, useState } from 'react';
 import { Route } from 'react-router-dom'
 
 import './App.css'; 
 import Navbar from './components/Navbar'
-
+import Weather from './components/Weather'
 
 // Defining our <App /> component the function name matches the file name
 function App() {
+
+    const [location, setLocation] = useState({lat: 0, long: 0})
+
+    useEffect(()=>{
+      const success = (position) =>{ 
+        let lat = position.coords.latitude
+        let long = position.coords.longitude
+   
+        
+        console.log(lat, long)
+        setLocation({lat: lat, long: long})
+        
+      }
+      navigator.geolocation.getCurrentPosition(success)
+      
+    },[])
+
+
 
   const routes = ['nasa','openweather','zomato']
 
@@ -15,13 +34,13 @@ function App() {
     {/* Establish Navigation for the website */}
       <Navbar routes={routes} />
       <Route exact path="/nasa"></Route>
-      <Route exact path="/openweather"></Route>
+
+      <Route exact path="/openweather">
+        <Weather position={location} />
+      </Route>
+
       <Route exact path="/zomato"></Route>
 
-     {/* Intro text  */}
-      <h1>What's going on?</h1>
-      <p>Check out a satelite of where you're at, the weather, and a restaurants near you!</p>
-      
     </div>
   );
 }
