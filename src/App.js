@@ -30,10 +30,9 @@ import Weather from './components/Weather'
 
 
 function App() {
-
+  // Gets just the
  const location = useLocation()
     
-
   const routes = ['nasa','openweather','zomato']
 
   return ( 
@@ -47,7 +46,9 @@ function App() {
         <Weather position={location} />
       </Route>
 
-      <Route exact path="/zomato"></Route>
+      <Route exact path="/zomato">
+   
+      </Route>
 
     </div>
   );
