@@ -1,17 +1,55 @@
-// adding css to jsx is that easy
-import './App.css'; // This pattern is preferred where css for this component has a matching .css filename
+import { useEffect, useState } from 'react';
+import { Route } from 'react-router-dom'
 
-// A component import
+import './App.css'; 
 import Navbar from './components/Navbar'
-
+import Weather from './components/Weather'
 
 // Defining our <App /> component the function name matches the file name
+
+ const useLocation = () => {
+  const [location, setLocation] = useState({lat: 0, long: 0})
+
+    useEffect(()=>{
+      const success = (position) =>{ 
+        let lat = position.coords.latitude
+        let long = position.coords.longitude
+   
+        
+        console.log(lat, long)
+        setLocation({lat: lat, long: long})
+        
+      }
+      navigator.geolocation.getCurrentPosition(success)
+      
+    },[])
+
+    return location;
+
+}
+
+
 function App() {
-  // All functional components need to return jsx with one parent element
+  // Gets just the
+ const location = useLocation()
+    
+  const routes = ['nasa','openweather','zomato']
+
   return ( 
-    <div className="App"> {/* Parent Element. Also we can't use the word class, so we use className in jsx*/}
-      {/* Navbar is our imported component*/}
-      <Navbar />
+    <div className="App"> 
+
+    {/* Establish Navigation for the website */}
+      <Navbar routes={routes} />
+      <Route exact path="/nasa"></Route>
+
+      <Route exact path="/openweather">
+        <Weather position={location} />
+      </Route>
+
+      <Route exact path="/zomato">
+   
+      </Route>
+
     </div>
   );
 }
