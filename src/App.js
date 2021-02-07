@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import './App.css'; 
 import Navbar from './components/Navbar'
 import Weather from './components/Weather'
+import Food from './components/Zomato'
 
 // Defining our <App /> component the function name matches the file name
 
@@ -47,7 +48,9 @@ function App() {
         <Weather position={location} />
       </Route>
 
-      <Route exact path="/zomato"></Route>
+      <Route exact path="/zomato">
+        <Food position ={location} />
+      </Route>
 
     </div>
   );
