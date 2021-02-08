@@ -32,7 +32,7 @@ import Food from './components/Zomato'
 
 
 function App() {
-  // Gets just the
+  
  const location = useLocation()
     
   const routes = ['nasa','openweather','zomato']
