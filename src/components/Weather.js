@@ -1,11 +1,47 @@
+import { useState, useEffect } from "react"
+
 const Weather = ({ position }) => {
 
-   
+    const APIKey = '6cf22fd325eac78db9643751d571584f'
+    // https://cors-anywhere.herokuapp.com/
+    const [weather, setWeather] = useState()
+
+    const initData = async () => {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.lat}&lon=${position.long}&appid=${APIKey}`, {
+            headers : { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'Status': 'OK'
+             }
+      
+          })
+        
+        const weatherData = await response.json()
+            setWeather(weatherData)
+
+
+        console.log(response)
+    }
+
+    useEffect(()=> {
+        initData()
+    },[])
+
     return(
         <div>
-        <p> long: {position.long}</p>
-        <p> lat: {position.lat}</p>
-  
+        <h1> Your current coordinates.</h1> 
+        <p> longitude: {position.lat}</p>
+        <p> latitude: {position.long}</p>
+        
+        <h1> The weather where you are:</h1>
+        <p>Or just go outside. \_(ツ)_/¯ </p>
+
+
+
+        
+
+
+
 
         
         </div>

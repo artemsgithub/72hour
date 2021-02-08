@@ -22,8 +22,8 @@ import Food from './components/Zomato'
         setLocation({lat: lat, long: long})
         
       }
-      navigator.geolocation.getCurrentPosition(success)
-      
+       navigator.geolocation.getCurrentPosition(success)
+
     },[])
 
     return location;
@@ -39,22 +39,23 @@ function App() {
 
   return ( 
     <div className="App"> 
+            <p>Your current position.</p>
+        <p>{location.lat}</p>  
+        <p>{location.long}</p>  
 
+        
     {/* Establish Navigation for the website */}
       <Navbar routes={routes} />
       <Route exact path="/nasa"></Route>
 
       <Route exact path="/openweather">
+
         <Weather position={location} />
       </Route>
     
 
       <Route exact path="/zomato">
-
         <Food position ={location} />
-
-  
-
       </Route>
 
     </div>
