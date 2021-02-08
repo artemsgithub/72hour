@@ -1,10 +1,14 @@
+import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 // Function name matches file name
-const Navbar = () => {
+const Navbar = ({routes}) => {
     // return must have one parent element
     return (
         <nav>
+            {routes.map((route)=>{
+                return <Link key={route} to={route}>GOTO{route}</Link>
+            })}
         </nav>
     )
 }
