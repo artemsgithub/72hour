@@ -19,14 +19,8 @@ function App() {
         let long = position.coords.longitude
 
         console.log(lat, long)
-<<<<<<< HEAD
         setLocation({ lat: lat, long: long })
       }
-=======
-        setLocation({lat: lat, long: long})
-        
-      } 
->>>>>>> b419fb4f7dc6ea8e578a855d554b5b24c42b215b
       navigator.geolocation.getCurrentPosition(success)
 
     }, [])
@@ -35,30 +29,17 @@ function App() {
 
   }
 
-<<<<<<< HEAD
   // Gets just the
   const location = useLocation()
 
   const routes = ['nasa', 'openweather', 'zomato']
-=======
-function App() {
-
- const location = useLocation()
-    
-
-  const routes = ['NASA','OPENWEATHER','ZOMATO']
->>>>>>> b419fb4f7dc6ea8e578a855d554b5b24c42b215b
 
   return (
     <div className="App">
 
-<<<<<<< HEAD
       {/* Establish Navigation for the website */}
       <Navbar routes={routes} />
       <Route exact path="/nasa"></Route>
-=======
-    {/* Establish Navigation for the website */}
->>>>>>> b419fb4f7dc6ea8e578a855d554b5b24c42b215b
 
     <p>Your current position.</p>
         <p>{location.lat}</p>  
@@ -74,13 +55,8 @@ function App() {
         <Weather position={location} />
       </Route>
 
-<<<<<<< HEAD
       <Route exact path="/Zomato">
         <Zomato lat={latitude} lon={longitude} />
-=======
-      <Route exact path="/zomato">
-        <Food position ={location} />
->>>>>>> b419fb4f7dc6ea8e578a855d554b5b24c42b215b
       </Route>
 
     </div>
