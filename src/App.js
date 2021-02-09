@@ -27,7 +27,9 @@ function App() {
 
     }, [])
 
-function App() {
+    return location;
+
+  }
 
   // Gets just the
   const location = useLocation()
@@ -38,22 +40,23 @@ function App() {
     <div className="App">
 
       {/* Establish Navigation for the website */}
-      <Navbar routes={routes} />
-      <Route exact path="/nasa"></Route>
-
- 
+       
       <Header/>
       <Navbar routes={routes} />
 
       <Route exact path="/nasa"></Route>
-      <div className="user-message">
     <div style={{display:'flex'}}>
-      <p style={{marginRight:"10px", marginLeft:"10px"}}>Please allow your coordinates to load before proceeding!   </p>
       <p><strong>Your current position : </strong>  </p>
         <p> {location.lat},</p>  
         <p> {location.long} </p>  
         </div>
-        </div>
+
+
+      <Route exact path="/nasa">
+        <Nasa position={location} />
+      </Route>
+            
+
       <Route exact path="/openweather">
         <Weather position={location} />
       </Route>

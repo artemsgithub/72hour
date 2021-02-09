@@ -27,28 +27,13 @@ const Weather = ({ position }) => {
         initData()
     },[])
 
-
-    
-<<<<<<< HEAD
-    return(
-=======
    return(
->>>>>>> 1679f12fbbe1630753a74712138b910d3c56d68e
+
         <div>
-   
         <h1> The weather where you are:</h1>
         <p>Or just go outside. \_(ツ)_/¯ </p>
-<<<<<<< HEAD
-
         <Toggle tempF={weather} />
-        
-
-=======
-        <h3>Temp: {weather} degrees Fahrenheit</h3>
-        <button>Fahrenheit Kelvin Toggle</button>
-        <h3>Temp: {kelvin} degrees Kelvin</h3>
->>>>>>> 1679f12fbbe1630753a74712138b910d3c56d68e
-        
+    
         </div>
 
     )
