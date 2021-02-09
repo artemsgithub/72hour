@@ -7,7 +7,7 @@ const Navbar = ({routes}) => {
     return (
         <nav>
             {routes.map((route)=>{
-                return <Link key={route} to={route}>GOTO{route}</Link>
+                return <Link style={{textDecoration: 'none'}} key={route} to={route}> {route}     |    </Link>
             })}
         </nav>
     )

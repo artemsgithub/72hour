@@ -10,14 +10,7 @@ const Weather = ({ position }) => {
     const [weather, setWeather] = useState()
 
     const initData = async () => {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=${APIKey}`, {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              'Status': 'OK',
-             }
-      
-          })
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=${APIKey}`)
         
         const weatherData = await response.json()
             setWeather(weatherData)

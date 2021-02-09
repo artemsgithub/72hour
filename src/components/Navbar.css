@@ -1,5 +1,8 @@
 nav {
     height: 50px;
     width: 100%;
-    background-color: grey;
+    padding-top: 15px;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);   
 }
