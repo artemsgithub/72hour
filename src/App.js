@@ -65,7 +65,7 @@ function App() {
       </Route>
 
       <Route exact path="/Zomato">
-        <Zomato lat={latitude} lon={longitude} />
+        <Zomato position={location} />
       </Route>
 
     </div>
