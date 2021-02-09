@@ -49,8 +49,10 @@ function App() {
 
 
       <Navbar routes={routes} />
-      <Route exact path="/nasa"></Route>
-
+      <Route exact path="/nasa">
+        <Nasa position={location} />
+      </Route>
+            
       <Route exact path="/openweather">
         <Weather position={location} />
       </Route>
