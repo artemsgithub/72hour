@@ -5,7 +5,7 @@ import './App.css';
 import Navbar from './components/Navbar'
 import Weather from './components/Weather'
 import Nasa from './components/Nasa'
-import Food from './components/Zomato'
+
 import Header from './components/Header'
 import Zomato from './components/Zomato'
 
@@ -59,7 +59,7 @@ function App() {
       </Route>
 
       <Route exact path="/Zomato">
-        <Zomato lat={latitude} lon={longitude} />
+        <Zomato position={location} />
       </Route>
 
     </div>
