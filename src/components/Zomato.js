@@ -41,7 +41,8 @@ const Zomato = ({ position }) => {
     const key = "c39bc77e2a164a290496ad9daa292ef8"
     // https://cors-anywhere.herokuapp.com/
     const [zomato, setZomato] = useState()
-
+    const [zomato2, setZomato2] = useState()
+    const [zomato3, setZomato3] = useState()
     const initData = async () => {
         const response = await fetch(`https://developers.zomato.com/api/v2.1/geocode?lat${lati}=&lon=${long}&apikey=${key}`)
         
@@ -51,6 +52,11 @@ const Zomato = ({ position }) => {
         let restaurant = await ZomatoData.nearby_restaurants[0].restaurant.name
         console.log(restaurant);
         setZomato(restaurant)
+        let type = await ZomatoData.nearby_restaurants[0].restaurant.cuisines
+        console.log(type);
+        setZomato2(type)
+        let location = await ZomatoData.nearby_restaurants[0].restaurant.location.address
+        setZomato3(location)
     }
 
     useEffect(()=> {
@@ -61,6 +67,8 @@ const Zomato = ({ position }) => {
         <div className="restaurantTile">
             <h1> Dining Near Here </h1>
             <p>{zomato}</p>
+            <p>Offering {zomato2} cuisine</p> 
+            <p>Located at {zomato3} </p>
         </div>
 
     );
