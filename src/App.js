@@ -31,7 +31,6 @@ import Header from './components/Header'
 
 }
 
-
 function App() {
 
  const location = useLocation()
@@ -48,12 +47,14 @@ function App() {
       <Header/>
       <Navbar routes={routes} />
       <Route exact path="/nasa"></Route>
+      <div className="user-message">
     <div style={{display:'flex'}}>
+      <p style={{marginRight:"10px", marginLeft:"10px"}}>Please allow your coordinates to load before proceeding!   </p>
       <p><strong>Your current position : </strong>  </p>
         <p> {location.lat},</p>  
         <p> {location.long} </p>  
         </div>
-
+        </div>
       <Route exact path="/openweather">
         <Weather position={location} />
       </Route>

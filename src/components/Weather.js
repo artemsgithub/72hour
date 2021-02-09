@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import Toggle from './Toggle'
 
 const Weather = ({ position }) => {
 
@@ -27,15 +28,14 @@ const Weather = ({ position }) => {
 
 
     
-
     return(
         <div>
    
         <h1> The weather where you are:</h1>
         <p>Or just go outside. \_(ツ)_/¯ </p>
 
-        <h3>Temp: {weather} degrees Fahrenheit</h3>
-        <button>Fahrenheit Kelvin Toggle</button>
+        <Toggle tempF={weather} />
+        
 
         
         </div>
