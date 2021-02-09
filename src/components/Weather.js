@@ -13,34 +13,29 @@ const Weather = ({ position }) => {
         const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=${APIKey}`)
         
         const weatherData = await response.json()
-            setWeather(weatherData)
-
 
         console.log(weatherData)
-        return weather
+
+        let kelvinTemp = await weatherData.main.temp 
+        let tempInFahrenheit = kelvinTemp * 1.8 - 459.67
+        setWeather(tempInFahrenheit)
     }
 
     useEffect(()=> {
         initData()
     },[])
 
-    let kelvinTemp = weather.main.temp
-    let tempInFahrenheit = kelvinTemp * 1.8 - 459.67
-
-    let finalTempResult = Math.trunc(tempInFahrenheit)
 
     
 
     return(
         <div>
-        <h1> Your current coordinates.</h1> 
-        <p> longitude: {long}</p>
-        <p> latitude: {lati}</p>
-        
+   
         <h1> The weather where you are:</h1>
         <p>Or just go outside. \_(ツ)_/¯ </p>
 
-        <h3>Temp: {finalTempResult} degrees Fahrenheit</h3>
+        <h3>Temp: {weather} degrees Fahrenheit</h3>
+        <button>Fahrenheit Kelvin Toggle</button>
 
         
         </div>
